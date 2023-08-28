@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="light">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,58 @@
     </head>
     <body>
         <header>
-
+            <h2 class="text-5xl text-center my-8 font-bold text-rose-700">Hunting
+                Phone</h2>
         </header>
 
         <main class="container mx-auto">
-            <section>
-                <h2 class="text-5xl text-center mt-8">Hunting Phone</h2>
+
+            <section class="flex">
+                <div
+                    class="w-full mx-auto bg-slate-700 py-5 px-4 rounded-xl items-center justify-center mb-10">
+                    <input id="search-field" type="text" placeholder="Search..."
+                        class="input input-bordered w-full max-w-xs mx-auto" />
+                    <button onclick="handleSearch()" class="btn btn-info">Search</button>
+
+                    <!-- *another search -->
+                    <!-- <input id="search-field2" type="text"
+                        placeholder="Search here"
+                        class="input input-bordered w-full max-w-xs mx-auto" />
+                    <button onclick="handleSearch2()"
+                        class="btn btn-secondary text-base font-medium">Search</button> -->
+                </div>
             </section>
+
+            <!-- search result -->
+            <section class="my-12">
+
+                <!-- spinner or loader -->
+                <div id="loading-spinner" class="text-center my-80 hidden">
+                    <span class="loading loading-dots loading-lg"></span>
+                </div>
+
+                <div id="phone-container"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+                <!-- show all button -->
+                <div id="show-all-container" class="hidden my-4">
+                    <button onclick="handleShowAll()"
+                        class="btn btn-accent w-32 mx-auto flex justify-center">Show
+                        All</button>
+                </div>
+            </section>
+
+            <!-- Show Details Modal Section -->
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+                <form method="dialog" id="modal-form" class="modal-box">
+                    <div id="show-detail-container" class="px-2 py-4 space-y-2"></div>
+                    <div class="modal-action ">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn text-white py-4 px-12 bg-red-600">Close</button>
+                    </div>
+                </form>
+            </dialog>
         </main>
 
         <footer>
